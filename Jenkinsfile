@@ -20,10 +20,29 @@ environment {
 }
 
 stages {
-    stage ('print version') {
+    stage ('init') {
         steps {
-            echo "versionNumber: ${params.appversion}"
+            sh """
+                cd terraform
+                terraform init
+            """
 
+        }
+    }
+    stage ('plan') {
+        steps {
+            sh """
+            cd terraform
+            terraform plan -var="appVersion=${params.appversion}"
+            """
+        }
+    }
+    stage ('deploy') {
+        steps {
+            sh """
+            cd terraform
+            terraform apply -auto-approve -var="appVersion=${params.appversion}"
+            """
         }
     }
 }
