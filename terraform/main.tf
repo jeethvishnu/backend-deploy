@@ -7,7 +7,7 @@ module "backend" {
   # convert StringList to list and get first element
   subnet_id = local.private_subnet_id
   ami = data.aws_ami.ami_info.id
-  associate_public_ip_address = true
+  #associate_public_ip_address = true
   
   tags = merge(
     var.common_tags,
@@ -27,7 +27,9 @@ resource "null_resource" "backend" {
         type     = "ssh"
         user     = "ec2-user"
         password = "DevOps321"
-        host     = module.backend.public_ip
+        host     = module.backend.private_ip
+        bastion_host = "98.84.45.22"
+        bastion_user = "ec2-user"
     }
 
     provisioner "file" {
