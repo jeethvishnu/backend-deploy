@@ -33,7 +33,7 @@ stages {
         steps {
             sh """
             cd terraform
-            terraform plan -var="appVersion=${params.appversion}"
+            terraform plan -var="app_version=${params.appversion}"
             """
         }
     }
@@ -41,7 +41,7 @@ stages {
         steps {
             sh """
             cd terraform
-            terraform apply -auto-approve -var="appVersion=${params.appversion}"
+            terraform apply -auto-approve -var="app_version=${params.appversion}"
             """
         }
     }
