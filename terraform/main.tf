@@ -28,7 +28,8 @@ resource "null_resource" "backend" {
         user     = "ec2-user"
         password = "DevOps321"
         host     = module.backend.private_ip
-      
+        bastion_host = "44.199.201.112"
+        bastion_user = "ec2-user"
     }
 
     provisioner "file" {
