@@ -48,7 +48,7 @@ resource "null_resource" "backend" {
     provisioner "remote-exec" {
         inline = [
             
-            "sudo sh /tmp/${var.common_tags.Component}.sh ${var.common_tags.Component} ${var.env} ${var.app_version}"
+            "sudo sh /tmp/${var.common_tags.Component}.sh backend-j ${var.env} ${var.app_version}"
         ]
     } 
 }
