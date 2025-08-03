@@ -100,7 +100,7 @@ resource "aws_launch_template" "backend" {
   instance_type = "t3.micro"
   update_default_version = true # sets the latest version to default
 
-  vpc_security_group_ids = [data.aws_ssm_parameter.backend_sg_id.value]
+  vpc_security_group_ids = [data.aws_ssm_parameter.allow_all_sg_id.value]
 
   tag_specifications {
     resource_type = "instance"
