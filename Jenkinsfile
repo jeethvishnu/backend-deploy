@@ -49,7 +49,7 @@ stages {
 post {
     always {
         echo 'will run always'
-        deleteDir()
+        //deleteDir()
     }
     success {
         echo 'will run when it is successful'
