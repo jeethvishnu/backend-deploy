@@ -38,6 +38,7 @@ resource "null_resource" "backend" {
 
     provisioner "remote-exec" {
         inline = [
+          "echo /tmp/${var.common_tags.Component}.sh",
             "chmod +x /tmp/${var.common_tags.Component}.sh",
     
         ]
