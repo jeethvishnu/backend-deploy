@@ -3,7 +3,7 @@ module "backend" {
   name = "${var.project}-${var.env}-${var.common_tags.Component}"
 
   instance_type          = "t3.micro"
-  vpc_security_group_ids = [data.aws_ssm_parameter.backend_sg_id.value]
+  vpc_security_group_ids = [data.aws_ssm_parameter.allow_all_sg_id.value]
   # convert StringList to list and get first element
   subnet_id = local.private_subnet_id
   ami = data.aws_ami.ami_info.id
